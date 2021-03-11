@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Copy IT!</title>
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+            crossorigin="anonymous"
+        />
+
+        <meta name="description" content=" Herramienta para copiar una img al clipboard" />
+        <meta name="author" content="Miguel De Olim" />
+
+        <link rel="stylesheet" href="css/custom.css" />
+    </head>
+    <body class="m-1">
+        <h1 class="text-center display-3">Copy IT!</h1>
+        <p class="text-center font-monospace">Miguel De Olim</p>
+
+        <div class="container">
+            <div class="row">
+                <!-- INPUT IMG -->
+                <div class="mb-3 mt-3">
+                    <label for="formFile" class="form-label fs-2">
+                        <span class="fw-bold fs-3">1 </span> Escoge una imagen de tu galería:</label
+                    >
+                    <input class="form-control" type="file" id="formFile" />
+                </div>
+
+                <!-- Preview IMG-->
+                <div id="prew-img" class="d-none">
+                    <hr />
+                    <label class="form-label fs-2">
+                        <span class="fw-bold fs-3">2 </span> Copia la imagen:</label
+                    >
+                    <div class="text-center">
+                        <img src="#" class="rounded" id="preview-img" width="80%" />
+                    </div>
+
+                    <p class="text-muted text-center">*Mantén presionado la imagen para copiar*</p>
+
+                    <hr />
+                    <div>
+                        <label class="form-label fs-2">
+                            <span class="fw-bold fs-3">3 </span> Pégalo en la herramienta
+                            <span class="text-bold">texto de Instagram Story</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="my-5 text-muted text-center">
+            <p>V 1.0.0</p>
+        </footer>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>
