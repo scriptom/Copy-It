@@ -6,6 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Copy IT!</title>
 
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="application-name" content="Copy IT!" />
+        <meta name="apple-mobile-web-app-title" content="Copy IT!" />
+        <meta name="msapplication-starturl" content="/Copy-It/" />
+        <link rel="manifest" href="manifest.webmanifest" />
+
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -13,13 +20,17 @@
             crossorigin="anonymous"
         />
 
-        <meta name="description" content=" Herramienta para copiar una img al clipboard" />
+        <meta
+            name="description"
+            content="Herramienta para copiar una imagen al portapapeles. Por Miguel De Olim"
+        />
         <meta name="author" content="Miguel De Olim" />
 
         <link rel="stylesheet" href="css/custom.css" />
     </head>
     <body class="m-1">
         <h1 class="text-center display-3">Copy IT!</h1>
+        <p class="text-muted text-center">Herramienta para copiar una imagen al portapapeles</p>
         <p class="text-center font-monospace">Miguel De Olim</p>
 
         <div class="container">
@@ -56,7 +67,7 @@
         </div>
 
         <footer class="my-5 text-muted text-center">
-            <p>V 1.0.0</p>
+            <p>V 1.1.0</p>
         </footer>
 
         <script src="js/main.js"></script>

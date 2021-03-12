@@ -3,7 +3,6 @@ document.getElementById("formFile").addEventListener("change", function () {
 });
 
 function imagenUpload(input) {
-    console.log("runnig", input);
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
@@ -19,4 +18,8 @@ function imagenUpload(input) {
 
 function showPreview() {
     document.getElementById("prew-img").classList.remove("d-none");
+}
+
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("cpit-sw.js");
 }
