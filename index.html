@@ -30,7 +30,7 @@
     </head>
     <body class="m-1">
         <h1 class="text-center display-3">Copy IT!</h1>
-        <p class="text-muted text-center">Herramienta para copiar una imagen al portapapeles</p>
+        <p class="text-muted text-center">¡Copia una imagen al portapapeles!</p>
         <p class="text-center font-monospace">Miguel De Olim</p>
 
         <div class="container">
@@ -40,7 +40,12 @@
                     <label for="formFile" class="form-label fs-2">
                         <span class="fw-bold fs-3">1 </span> Escoge una imagen de tu galería:</label
                     >
-                    <input class="form-control" type="file" id="formFile" />
+                    <input
+                        class="form-control"
+                        type="file"
+                        id="formFile"
+                        accept=".png, .jpeg, .jpg, .bmp"
+                    />
                 </div>
 
                 <!-- Preview IMG-->
@@ -67,7 +72,7 @@
         </div>
 
         <footer class="my-5 text-muted text-center">
-            <p>V 1.1.0</p>
+            <p>V 1.1.5</p>
         </footer>
 
         <script src="js/main.js"></script>
