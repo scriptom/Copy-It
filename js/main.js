@@ -1,5 +1,6 @@
 document.getElementById("formFile").addEventListener("change", function () {
     imagenUpload(this);
+    OnClickGa("imgLoaded", "InputFile");
 });
 
 function imagenUpload(input) {
@@ -18,6 +19,23 @@ function imagenUpload(input) {
 
 function showPreview() {
     document.getElementById("prew-img").classList.remove("d-none");
+}
+
+function OnClickGa(act, typeInter, lb) {
+    //si existe etiqueta hacer:
+    //console.log('LB', lb)
+    if (lb) {
+        //console.log('enter');
+        gtag("event", act, {
+            event_category: typeInter + "Interaccion",
+            event_label: lb,
+        });
+    } else {
+        //console.log('not enter');
+        gtag("event", act, {
+            event_category: typeInter + "Interaccion",
+        });
+    }
 }
 
 if ("serviceWorker" in navigator) {

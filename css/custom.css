@@ -2,3 +2,11 @@
 #prew-img {
     transition: all ease 1s;
 }
+
+.pad-r {
+    padding-right: 10px;
+}
+
+.pad-l {
+    padding-left: 10px;
+}
