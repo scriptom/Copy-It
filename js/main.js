@@ -10,6 +10,21 @@ function imagenUpload(input) {
         reader.onload = function (e) {
             document.getElementById("preview-img").src = e.target.result;
 
+            //Auto copiado
+            navigator.permissions.query({ name: "clipboard-write" }).then(() => {
+                setCanvasImage(e.target.result, (imgBlob) => {
+                    navigator.clipboard
+                        .write([new ClipboardItem({ "image/png": imgBlob })])
+                        .then((e) => {
+                            console.log("Copiado!");
+                        })
+                        .catch((e) => {
+                            console.log(e);
+                        });
+                });
+            });
+
+            //Mostrar imagen
             showPreview();
         };
 
@@ -52,4 +67,21 @@ if (document.documentElement.classList) {
         let igModal = new bootstrap.Modal(document.getElementById("igModal"));
         igModal.show();
     }
+}
+
+//Copy
+const img = new Image();
+const c = document.createElement("canvas");
+const ctx = c.getContext("2d");
+
+function setCanvasImage(path, func) {
+    img.onload = function () {
+        c.width = this.naturalWidth;
+        c.height = this.naturalHeight;
+        ctx.drawImage(this, 0, 0);
+        c.toBlob((blob) => {
+            func(blob);
+        }, "image/png");
+    };
+    img.src = path;
 }
