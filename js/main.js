@@ -41,3 +41,15 @@ function OnClickGa(act, typeInter, lb) {
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("cpit-sw.js");
 }
+
+//IG
+var ua = navigator.userAgent || navigator.vendor || window.opera;
+var isInstagram = ua.indexOf("Instagram") > -1 ? true : false;
+
+if (document.documentElement.classList) {
+    if (isInstagram) {
+        console.log("IG NAVIGATOR");
+        let igModal = new bootstrap.Modal(document.getElementById("igModal"));
+        igModal.show();
+    }
+}
