@@ -38,6 +38,45 @@ function OnClickGa(act, typeInter, lb) {
     }
 }
 
+function transformToPng(url) {
+    return new Promise((resolve, reject) => {
+        const img = new Image;
+        img.onload = function() {
+            const c = document.createElement('canvas');
+            const ctx = c.getContext('2d');
+            c.width = this.naturalWidth;
+            c.height = this.naturalHeight;
+            ctx.drawImage(this, 0, 0);
+            c.toBlob(blob => {
+                resolve(blob);
+            }, 'image/png');    
+        }
+        img.src = url;
+    });
+}
+
+function copyImage() {
+    const copyFromURL = url =>
+    fetch(url).then(res => res.blob())
+        .then(blob => 'image/png' === blob.type ? blob : transformToPng(src))
+        .then(blob => clipboard.write([new ClipboardItem({[blob.type]: blob})]))
+        .then(() => alert('Copied successfully!'), () => alert('Error copying data'));
+    const {clipboard, permissions} = navigator;
+    const {src} = document.querySelector('#preview-img');
+    if (typeof permissions !== 'undefined') {
+        permissions.query({name: 'clipboard-write'})
+            .then(perm => {
+                switch(perm.state) {
+                    case 'denied': alert('denied');break;
+                    case 'granted':
+                    case 'prompt': 
+                        copyFromURL(src);
+                        break;
+                }
+            });
+    }
+}
+
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("cpit-sw.js");
 }
